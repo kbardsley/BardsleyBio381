@@ -1,0 +1,8 @@
+---
+title: "Homework 2"
+author: "Katie Bardsley"
+date: "February 2021"
+output: html_document
+---
+## This is my Homework 2
+
