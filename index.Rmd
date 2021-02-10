@@ -12,7 +12,7 @@ output:
 
 This is my webpage for Bio 381 - Computational Biology.
 
-<img src="DSC_0982.jpg" width = "200" height ="200 />
+<img src="DSC_0982.jpg" width = "300" height ="300" />
 
 ## Homework Assignments:
 
