@@ -10,6 +10,8 @@ output:
 
 ## Hello!
 
+My name is Katie Bardsley.
+
 This is my webpage for Bio 381 - Computational Biology.
 
 <img src="DSC_0982.jpg" width = "300" height ="300" />
@@ -18,6 +20,6 @@ This is my webpage for Bio 381 - Computational Biology.
 
 ### Week 1: *Nothing due*
 
-### Week 2: [Link text: Homework 2 Answers](Homework/HW3.html)
+### Week 2: [Homework 2](Homework/Homework_02.html)
 
 ### Week 3:

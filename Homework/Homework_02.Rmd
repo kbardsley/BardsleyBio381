@@ -2,7 +2,11 @@
 title: "Homework 2"
 author: "Katie Bardsley"
 date: "February 2021"
-output: html_document
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
 ---
 ## This is my Homework 2
 
+I have created a main page with a link to this file.
