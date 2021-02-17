@@ -2,10 +2,11 @@
 title: "Homework 3"
 author: "Katie Bardsley"
 date: "Feb 17, 2021"
-output: html_document
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
 ---
-
-
 
 1.
 ```
