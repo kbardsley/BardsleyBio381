@@ -55,6 +55,7 @@ REPLACE: ,</code></pre>
 <p>The <code>\h</code> refers to a space that is not a line break<br />
 The <code>{2,}</code> looks for two or more consecutive spaces<br />
 I am replacing anywhere there is two or more spaces (but not a line break), with a <code>,</code></p>
+<hr />
 <ol start="2" style="list-style-type: decimal">
 <li></li>
 </ol>
@@ -65,6 +66,7 @@ The <code>,\s</code> looks for a comma after the first and second words, followe
 The <code>\1</code>, <code>\2</code>, and <code>\3</code> refer to the captured segments.<br />
 The <code>\</code> is a way to insert a space in the replacement.<br />
 The <code>\(</code> and <code>\)</code> insert parentheses in the replacement.</p>
+<hr />
 <ol start="3" style="list-style-type: decimal">
 <li></li>
 </ol>
@@ -73,6 +75,7 @@ REPLACE: \1\n</code></pre>
 <p>The <code>[^.]+</code> highlights a string of characters until it finds a period. Here this is the song name without the file extension. The file extension is accounted for with the <code>.mp3</code>, and this entire segment is captured with the <code>()</code>.<br />
 The <code>\s</code> deals with the space between the song titles.<br />
 In the replacement, the <code>\1</code> is the song title captured from above, followed by a line break <code>\n</code>.</p>
+<hr />
 <ol start="4" style="list-style-type: decimal">
 <li></li>
 </ol>
@@ -80,6 +83,7 @@ In the replacement, the <code>\1</code> is the song title captured from above, f
 REPLACE: \2_\1.mp3\n</code></pre>
 <p>The <code>(\d+)</code> highlights a string of numbers until it reaches something that isn’t a number. This is how I capture the song number, which is saved in <code>\1</code>. The <code>\s</code> refers to a space, which is followed by <code>([^.]+)</code> - which captures a sequence of characters until it reaches a period. This is the song title, which is saved as <code>\2</code>. The <code>.mp3\s</code> accounts for the file extension and the following space.<br />
 The replace line strings together the second capture (the song title) and the first capture (the number), connected with a <code>_</code>, with the file extension <code>.mp3</code> and a new line <code>\n</code> at the end.</p>
+<hr />
 <ol start="5" style="list-style-type: decimal">
 <li></li>
 </ol>
@@ -87,6 +91,7 @@ The replace line strings together the second capture (the song title) and the fi
 REPLACE: \1_\2,\3</code></pre>
 <p>The <code>(\w)</code> captures the first letter of the genus, which is saved in <code>\1</code>. The <code>[^,]+,</code> takes highlights the rest of the genus name and the following comma. The <code>(\w+)</code> captures the species name, which is saved in <code>\2</code>. The <code>,[^,]+,</code> highlights the next comma, the first number (by selecting everything until the next comma is reached), and the following comma, which just leaves the last number at the end. This number is captured using <code>(\d+)</code>, which saves the string of digits. This is used in the replace statement as <code>\3</code>.<br />
 The replace statement strings together the three captures with a <code>_</code> between the first two and a <code>,</code> between the last two.</p>
+<hr />
 <ol start="6" style="list-style-type: decimal">
 <li></li>
 </ol>
@@ -94,6 +99,7 @@ The replace statement strings together the three captures with a <code>_</code> 
 REPLACE: \1_\2,\3</code></pre>
 <p>The <code>(\w)</code> captures the first letter of the genus, which is saved in <code>\1</code>. The <code>[^,]+,</code> takes highlights the rest of the genus name and the following comma. The <code>(\w{4})</code> captures the first four letters of the species name, which is saved in <code>\2</code>. The <code>\w+</code> selects the rest of the species name. The <code>,[^,]+,</code> highlights the next comma, the first number, and the following comma, which just leaves the last number at the end. This number is captured using <code>(\d+)</code>, which saves the string of digits. This is used in the replace statement as <code>\3</code>.<br />
 The replace statement strings together the three captures with a <code>_</code> between the first two and a <code>,</code> between the last two.</p>
+<hr />
 <ol start="7" style="list-style-type: decimal">
 <li></li>
 </ol>

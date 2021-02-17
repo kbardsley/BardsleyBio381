@@ -17,6 +17,8 @@ The `\h` refers to a space that is not a line break
 The `{2,}` looks for two or more consecutive spaces  
 I am replacing anywhere there is two or more spaces (but not a line break), with a `,`  
 
+___
+
 2.
 ```
 FIND: (\w+),\s(\w+),\s(.*)
@@ -29,6 +31,8 @@ The `\1`, `\2`, and `\3` refer to the captured segments.
 The `\ ` is a way to insert a space in the replacement.  
 The `\(` and `\)` insert parentheses in the replacement.  
 
+___
+
 3.
 ```
 FIND: ([^.]+.mp3)\s
@@ -37,6 +41,8 @@ REPLACE: \1\n
 The `[^.]+` highlights a string of characters until it finds a period. Here this is the song name without the file extension. The file extension is accounted for with the `.mp3`, and this entire segment is captured with the `()`.  
 The `\s` deals with the space between the song titles.  
 In the replacement, the `\1` is the song title captured from above, followed by a line break `\n`.
+
+___
 
 4.
 ```
@@ -47,6 +53,8 @@ The `(\d+)` highlights a string of numbers until it reaches something that isn't
 The `\s` refers to a space, which is followed by `([^.]+)` - which captures a sequence of characters until it reaches a period. This is the song title, which is saved as `\2`. The `.mp3\s` accounts for the file extension and the following space.  
 The replace line strings together the second capture (the song title) and the first capture (the number), connected with a `_`, with the file extension `.mp3` and a new line `\n` at the end.
 
+___
+
 5.
 ```
 FIND: (\w)[^,]+,(\w+),[^,]+,(\d+)
@@ -55,6 +63,8 @@ REPLACE: \1_\2,\3
 The `(\w)` captures the first letter of the genus, which is saved in `\1`. The `[^,]+,` takes highlights the rest of the genus name and the following comma. The `(\w+)` captures the species name, which is saved in `\2`. The `,[^,]+,` highlights the next comma, the first number (by selecting everything until the next comma is reached), and the following comma, which just leaves the last number at the end. This number is captured using `(\d+)`, which saves the string of digits. This is used in the replace statement as `\3`.  
 The replace statement strings together the three captures with a `_` between the first two and a `,` between the last two.  
 
+___
+
 6.
 ```
 FIND: (\w)[^,]+,(\w{4})\w+,[^,]+,(\d+)
@@ -62,6 +72,8 @@ REPLACE: \1_\2,\3
 ```
 The `(\w)` captures the first letter of the genus, which is saved in `\1`. The `[^,]+,` takes highlights the rest of the genus name and the following comma. The `(\w{4})` captures the first four letters of the species name, which is saved in `\2`. The `\w+` selects the rest of the species name. The `,[^,]+,` highlights the next comma, the first number, and the following comma, which just leaves the last number at the end. This number is captured using `(\d+)`, which saves the string of digits. This is used in the replace statement as `\3`.  
 The replace statement strings together the three captures with a `_` between the first two and a `,` between the last two.  
+
+___
 
 7.
 ```
