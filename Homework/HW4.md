@@ -69,6 +69,7 @@ ___
 But not me
 
 
+!(flowchart drawing [https://github.com/kbardsley/BardsleyBio381/blob/main/Homework/flowchart_drawing.JPG?raw=true]
 
 <img src="flowchart_drawing.jpg" width = "500" height ="350" />
 
