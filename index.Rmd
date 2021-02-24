@@ -23,3 +23,5 @@ This is my webpage for Bio 381 - Computational Biology.
 ### Week 2: [Homework 2](Homework/Homework_02.html)
 
 ### Week 3: [Homework 3](Homework/Homework_03.html)
+
+### Week 3: [Homework 4](Homework/Homework_04.html)
