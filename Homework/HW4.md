@@ -68,8 +68,9 @@ ___
 
 But not me
 
+![flowchart attempt 2](https://raw.githubusercontent.com/kbardsley/BardsleyBio381/main/Homework/flowchart_drawing.JPG)
 
-!(flowchart drawing [https://github.com/kbardsley/BardsleyBio381/blob/main/Homework/flowchart_drawing.JPG?raw=true]
+
 
 <img src="flowchart_drawing.jpg" width = "500" height ="350" />
 
