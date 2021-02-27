@@ -72,8 +72,6 @@ But not me
 
 
 
-<img src="flowchart_drawing.jpg" width = "500" height ="350" />
-
 
 
 ```mermaid
