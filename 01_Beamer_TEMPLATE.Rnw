@@ -9,8 +9,8 @@
 % License:
 % CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
 %
-% Modified by Nicholas J. Gotelli
-% 9 January 2021
+% Modified by Katie Bardsley
+% 27 February 2021
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[12pt]{beamer}
 % only 10,11, or 12 pt fonts
@@ -24,10 +24,10 @@
 % FONTTHEMES: default, structurebold, structuresmallcapsserif, structureitalicserif, serif, professionalfonts
 
 
-\usetheme{default}
+\usetheme{Dresden}
 % THEMES: default, AnnArbor, Antibes, Bergen, Berkeley, Berlin, Boadilla, boxes, CambridgeUS, Copenhagen, Darmstadt, Dresden, Frankfurt, Goettingen, Hannover, Ilmenau, JuanLesPins, Luebeck, Madrid, Malmoe, Marburg, Montpellier, PaloAlto, Pittsburgh, Rochester, Singapore, Szeged, Warsaw
 
-\usecolortheme{default}
+\usecolortheme{spruce}
 %COLORTHEMES: default, albatross, beaver, beetle, crane, dolphin, dove, fly, lily, orchid, rose, seagull, seahorse, sidebartab, structure, whale, wolverine 
 
 % DISPLAY OPTIONS--------------------------
@@ -166,15 +166,32 @@ runif(10)
 
 % SLIDE (EMBEDDED R FIGURE)----------------
 \begin{frame}[fragile]{Embedded R Figure; \texttt{fragile} frame}
-%\begin{block}
+\begin{block}
 
-<<fig.align='center',fig.dim=c(2.5,2.5),echo=FALSE>>=
+<<fig.align='left',fig.dim=c(4,2.5), fig.cap="This is a plot of random uniform values.",echo=FALSE>>=
 # limited space for output
 plot(runif(10))
 @
-
-%\end{block}
+\label{Table caption}
+\end{block}
 \end{frame}
+
+
+% SLIDE (2 FIGURES)-----------------------------
+\begin{frame}
+\frametitle{Two Figures}
+% Uncomment the code on this slide to include your own image from the same directory as the template  file.
+\begin{figure}
+  \includegraphics[width=0.475\textwidth]{DSC_0982.jpg}%
+  \hfill
+  \includegraphics[width=0.475\textwidth]{DSC_0982.jpg}%
+% use this format for absolute sizing
+%\includegraphics[width=3cm, height=4cm]{filename.jpg}
+\end{figure}
+\end{frame}
+
+
+
 
 % SLIDE (MULTIPLE COLUMNS)-----------------
 \begin{frame}

@@ -24,4 +24,4 @@ This is my webpage for Bio 381 - Computational Biology.
 
 ### Week 3: [Homework 3](Homework/Homework_03.html)
 
-### Week 3: Homework 4 [Typora](Homework/Homework_04.html), [Letter](Homework/01_UVM_Letter_TEMPLATE.pdf), [Beamer](Homework/Beamer4)
+### Week 3: Homework 4 [Typora](Homework/Homework_04.html), [Letter](Homework/01_UVM_Letter_TEMPLATE.pdf), [Beamer](Homework_04_Beamer.pdf)

@@ -1,0 +1,15 @@
+\frametitle{Embedded R Figure; \texttt {fragile} frame}
+\begin{block}
+
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{figure}
+
+\includegraphics[width=\maxwidth]{figure/unnamed-chunk-1-1} \hfill{}
+
+\caption[This is a plot of random uniform values]{This is a plot of random uniform values.}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+
+\end{knitrout}
+\label{Table caption}
+\end{block}

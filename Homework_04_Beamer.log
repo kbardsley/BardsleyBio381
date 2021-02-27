@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.2)  27 FEB 2021 13:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.2)  27 FEB 2021 13:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**01_Beamer_TEMPLATE.tex
-(./01_Beamer_TEMPLATE.tex
+**Homework_04_Beamer.tex
+(./Homework_04_Beamer.tex
 LaTeX2e <2020-10-01> patch level 4
 L3 programming layer <2021-01-09> xparse <2020-03-03>
 (c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/beamer/be
@@ -804,8 +804,8 @@ amercolorthemespruce.sty)
 File: l3backend-pdftex.def 2020-01-29 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count324
 \l__pdf_internal_box=\box72
-) (./01_Beamer_TEMPLATE.aux)
-\openout1 = `01_Beamer_TEMPLATE.aux'.
+) (./Homework_04_Beamer.aux)
+\openout1 = `Homework_04_Beamer.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
 LaTeX Font Info:    ... okay on input line 110.
@@ -889,10 +889,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 110.
 LaTeX Info: Redefining \pageref on input line 110.
 LaTeX Info: Redefining \nameref on input line 110.
- (./01_Beamer_TEMPLATE.out)
-(./01_Beamer_TEMPLATE.out)
+ (./Homework_04_Beamer.out)
+(./Homework_04_Beamer.out)
 \@outlinefile=\write5
-\openout5 = `01_Beamer_TEMPLATE.out'.
+\openout5 = `Homework_04_Beamer.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 110.
@@ -960,154 +960,82 @@ Dictionary: translator-numbers-dictionary, Language: English
 (c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/translato
 r/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
-) (./01_Beamer_TEMPLATE.nav)
-[1{c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/u
-pdmap/pdftex.map}
+) (./Homework_04_Beamer.nav)
+[1
 
-] (./01_Beamer_TEMPLATE.toc) [2
-
-]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 139
-.
-
-(c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/
-umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 139
-.
-
-(c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/
-umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [3
-
-] [4
-
-] [5
-
-] [6
-
-]
-<UVMLogoSolid7484.jpg, id=313, 206.4513pt x 54.4434pt>
+{c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/upd
+map/pdftex.map}]
+<UVMLogoSolid7484.jpg, id=26, 206.4513pt x 54.4434pt>
 File: UVMLogoSolid7484.jpg Graphic file (type jpg)
 <use UVMLogoSolid7484.jpg>
 Package pdftex.def Info: UVMLogoSolid7484.jpg  used on input line 160.
 (pdftex.def)             Requested size: 307.28987pt x 81.04016pt.
- [7
+ [2
 
- <./UVMLogoSolid7484.jpg>] [8
+ <./UVMLogoSolid7484.jpg>]
+\openout4 = `Homework_04_Beamer.vrb'.
 
-]
-Overfull \vbox (1.67776pt too high) detected at line 188
- []
-
-[9
-
-]
-Overfull \vbox (39.34435pt too high) detected at line 204
- []
-
-[10
-
-]
-\openout4 = `01_Beamer_TEMPLATE.vrb'.
-
- (./01_Beamer_TEMPLATE.vrb
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 8.
-
-Overfull \hbox (143.48535pt too wide) in paragraph at lines 13--13
-[]\OT1/cmtt/m/n/12 ##  [1] 0.43356343 0.29321668 0.31232121 0.17949763 0.098802
-29 0.81254417[] 
- []
-
-
-Overfull \hbox (7.63528pt too wide) in paragraph at lines 13--13
-[]\OT1/cmtt/m/n/12 ##  [7] 0.81853910 0.35769415 0.26237233 0.35644571[] 
- []
-
-) [11
-
-]
-\openout4 = `01_Beamer_TEMPLATE.vrb'.
-
- (./01_Beamer_TEMPLATE.vrb
-<figure/unnamed-chunk-2-1.pdf, id=523, 289.08pt x 180.675pt>
-File: figure/unnamed-chunk-2-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-2-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-2-1.pdf  used on input line 7.
+ (./Homework_04_Beamer.vrb
+<figure/unnamed-chunk-1-1.pdf, id=33, 289.08pt x 180.675pt>
+File: figure/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-1-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-1-1.pdf  used on input line 7.
 (pdftex.def)             Requested size: 289.07928pt x 180.68282pt.
 )
-Overfull \vbox (68.65642pt too high) detected at line 242
+Overfull \vbox (64.39677pt too high) detected at line 234
  []
 
-[12
+[3
 
- <./figure/unnamed-chunk-2-1.pdf>]
-<DSC_0982.jpg, id=572, 747.9945pt x 747.9945pt>
+ <./figure/unnamed-chunk-1-1.pdf>]
+<DSC_0982.jpg, id=49, 747.9945pt x 747.9945pt>
 File: DSC_0982.jpg Graphic file (type jpg)
 <use DSC_0982.jpg>
-Package pdftex.def Info: DSC_0982.jpg  used on input line 256.
+Package pdftex.def Info: DSC_0982.jpg  used on input line 248.
 (pdftex.def)             Requested size: 145.96455pt x 145.95535pt.
 File: DSC_0982.jpg Graphic file (type jpg)
 <use DSC_0982.jpg>
-Package pdftex.def Info: DSC_0982.jpg  used on input line 256.
+Package pdftex.def Info: DSC_0982.jpg  used on input line 248.
 (pdftex.def)             Requested size: 145.96455pt x 145.95535pt.
- [13
+ [4
 
- <./DSC_0982.jpg>] [14
-
-] [15
-
-]
-\openout4 = `01_Beamer_TEMPLATE.vrb'.
-
-
-(./01_Beamer_TEMPLATE.vrb) [16
-
-] [17
+ <./DSC_0982.jpg>] [5
 
 ]
 \tf@nav=\write6
-\openout6 = `01_Beamer_TEMPLATE.nav'.
+\openout6 = `Homework_04_Beamer.nav'.
 
 \tf@toc=\write7
-\openout7 = `01_Beamer_TEMPLATE.toc'.
+\openout7 = `Homework_04_Beamer.toc'.
 
 \tf@snm=\write8
-\openout8 = `01_Beamer_TEMPLATE.snm'.
+\openout8 = `Homework_04_Beamer.snm'.
 
- (./01_Beamer_TEMPLATE.aux)
-Package rerunfilecheck Info: File `01_Beamer_TEMPLATE.out' has not changed.
-(rerunfilecheck)             Checksum: 263D307720953EF2ACC3DBC3B67AB706;164.
+
+(./Homework_04_Beamer.aux)
+Package rerunfilecheck Info: File `Homework_04_Beamer.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 17843 strings out of 481252
- 354902 string characters out of 5913866
- 659358 words of memory out of 5000000
- 34288 multiletter control sequences out of 15000+600000
- 411767 words of font info for 58 fonts, out of 8000000 for 9000
+ 17594 strings out of 481252
+ 349504 string characters out of 5913866
+ 636124 words of memory out of 5000000
+ 34092 multiletter control sequences out of 15000+600000
+ 406679 words of font info for 38 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 112i,19n,116p,493b,787s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,15n,116p,493b,653s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmitt10.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/Users/Katie Bardsley/AppDa
-ta/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/Use
-rs/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmss17.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmss8.pfb><c:/Users/Katie Bardsley/AppData/Roaming/
-TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/Users/Katie 
-Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
-i12.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmssi8.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb><c:/Users/Katie Bardsley/
-AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.p
-fb>
-Output written on 01_Beamer_TEMPLATE.pdf (17 pages, 2452032 bytes).
+c/amsfonts/cm/cmss10.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/Users/Katie Bardsley/AppDat
+a/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb><c:/User
+s/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmss8.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmssi8.pfb><c:/Users/Katie Bardsley/AppData/Roaming/T
+inyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on Homework_04_Beamer.pdf (5 pages, 2372253 bytes).
 PDF statistics:
- 822 PDF objects out of 1000 (max. 8388607)
- 759 compressed objects within 8 object streams
- 40 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
+ 13 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
