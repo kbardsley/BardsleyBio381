@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.2)  27 FEB 2021 13:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2021.2.2)  1 MAR 2021 14:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -968,38 +968,54 @@ map/pdftex.map}]
 <UVMLogoSolid7484.jpg, id=26, 206.4513pt x 54.4434pt>
 File: UVMLogoSolid7484.jpg Graphic file (type jpg)
 <use UVMLogoSolid7484.jpg>
-Package pdftex.def Info: UVMLogoSolid7484.jpg  used on input line 160.
+Package pdftex.def Info: UVMLogoSolid7484.jpg  used on input line 161.
 (pdftex.def)             Requested size: 307.28987pt x 81.04016pt.
  [2
 
  <./UVMLogoSolid7484.jpg>]
+<DSC_0982.jpg, id=34, 747.9945pt x 747.9945pt>
+File: DSC_0982.jpg Graphic file (type jpg)
+<use DSC_0982.jpg>
+Package pdftex.def Info: DSC_0982.jpg  used on input line 176.
+(pdftex.def)             Requested size: 145.96455pt x 145.95535pt.
+File: DSC_0982.jpg Graphic file (type jpg)
+<use DSC_0982.jpg>
+Package pdftex.def Info: DSC_0982.jpg  used on input line 176.
+(pdftex.def)             Requested size: 145.96455pt x 145.95535pt.
+ [3
+
+ <./DSC_0982.jpg>]
+\openout4 = `Homework_04_Beamer.vrb'.
+
+
+(./Homework_04_Beamer.vrb
+<figure/unnamed-chunk-1-1.pdf, id=41, 180.675pt x 144.54pt>
+File: figure/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-1-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-1-1.pdf  used on input line 8.
+(pdftex.def)             Requested size: 180.67455pt x 144.53963pt.
+)
+Overfull \vbox (45.0869pt too high) detected at line 253
+ []
+
+[4
+
+ <./figure/unnamed-chunk-1-1.pdf>]
 \openout4 = `Homework_04_Beamer.vrb'.
 
  (./Homework_04_Beamer.vrb
-<figure/unnamed-chunk-1-1.pdf, id=33, 289.08pt x 180.675pt>
-File: figure/unnamed-chunk-1-1.pdf Graphic file (type pdf)
-<use figure/unnamed-chunk-1-1.pdf>
-Package pdftex.def Info: figure/unnamed-chunk-1-1.pdf  used on input line 7.
+<figure/unnamed-chunk-2-1.pdf, id=54, 289.08pt x 180.675pt>
+File: figure/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use figure/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: figure/unnamed-chunk-2-1.pdf  used on input line 7.
 (pdftex.def)             Requested size: 289.07928pt x 180.68282pt.
 )
-Overfull \vbox (64.39677pt too high) detected at line 234
+Overfull \vbox (64.39677pt too high) detected at line 271
  []
 
-[3
+[5
 
- <./figure/unnamed-chunk-1-1.pdf>]
-<DSC_0982.jpg, id=49, 747.9945pt x 747.9945pt>
-File: DSC_0982.jpg Graphic file (type jpg)
-<use DSC_0982.jpg>
-Package pdftex.def Info: DSC_0982.jpg  used on input line 248.
-(pdftex.def)             Requested size: 145.96455pt x 145.95535pt.
-File: DSC_0982.jpg Graphic file (type jpg)
-<use DSC_0982.jpg>
-Package pdftex.def Info: DSC_0982.jpg  used on input line 248.
-(pdftex.def)             Requested size: 145.96455pt x 145.95535pt.
- [4
-
- <./DSC_0982.jpg>] [5
+ <./figure/unnamed-chunk-2-1.pdf>] [6
 
 ]
 \tf@nav=\write6
@@ -1011,31 +1027,29 @@ Package pdftex.def Info: DSC_0982.jpg  used on input line 248.
 \tf@snm=\write8
 \openout8 = `Homework_04_Beamer.snm'.
 
-
-(./Homework_04_Beamer.aux)
+ (./Homework_04_Beamer.aux)
 Package rerunfilecheck Info: File `Homework_04_Beamer.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 17594 strings out of 481252
- 349504 string characters out of 5913866
- 636124 words of memory out of 5000000
- 34092 multiletter control sequences out of 15000+600000
- 406679 words of font info for 38 fonts, out of 8000000 for 9000
+ 17604 strings out of 481252
+ 349787 string characters out of 5913866
+ 637133 words of memory out of 5000000
+ 34098 multiletter control sequences out of 15000+600000
+ 406510 words of font info for 37 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 112i,15n,116p,493b,653s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 112i,15n,116p,493b,651s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publi
 c/amsfonts/cm/cmss10.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmss12.pfb><c:/Users/Katie Bardsley/AppDat
 a/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb><c:/User
 s/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmss8.pfb><c:/Users/Katie Bardsley/AppData/Roaming/TinyTeX/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmssi8.pfb><c:/Users/Katie Bardsley/AppData/Roaming/T
-inyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on Homework_04_Beamer.pdf (5 pages, 2372253 bytes).
+/type1/public/amsfonts/cm/cmssi8.pfb>
+Output written on Homework_04_Beamer.pdf (6 pages, 2377290 bytes).
 PDF statistics:
- 86 PDF objects out of 1000 (max. 8388607)
- 61 compressed objects within 1 object stream
- 13 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 94 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
+ 15 named destinations out of 1000 (max. 500000)
+ 63 words of extra memory for PDF output out of 10000 (max. 10000000)
 

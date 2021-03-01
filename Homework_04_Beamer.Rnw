@@ -40,7 +40,7 @@
 % -----------------------------------------
 
 % TITLE PAGE DATA--------------------------
-\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Beamer]{How to Use Beamer - A simple example} % The short title appears at the bottom of every slide, the full title is only on the title page
 
 \author{Katie Bardsley} % Your name
 
@@ -99,14 +99,31 @@ Burlington, VT 05401 USA \\
 
 % SLIDE (FIGURE)-----------------------------
 \begin{frame}
-\frametitle{Figure}
+\frametitle{Inserting a Figure}
 % Uncomment the code on this slide to include your own image from the same directory as the template  file.
-% \begin{figure}
+\begin{figure}
    \includegraphics[width=1.0\linewidth]{UVMLogoSolid7484.jpg}
 % use this format for absolute sizing
 %\includegraphics[width=3cm, height=4cm]{filename.jpg}
-% \end{figure}
+\caption{Beamer makes it easy to include graphics.}
+\end{figure}
 \end{frame}
+
+
+% SLIDE (2 FIGURES)-----------------------------
+\begin{frame}
+\frametitle{What if you want more than one figure?}
+% Uncomment the code on this slide to include your own image from the same directory as the template  file.
+\begin{figure}
+  \includegraphics[width=0.475\textwidth]{DSC_0982.jpg}%
+  \hfill
+  \includegraphics[width=0.475\textwidth]{DSC_0982.jpg}%
+% use this format for absolute sizing
+%\includegraphics[width=3cm, height=4cm]{filename.jpg}
+\caption{This is me after hiking Mt. Crested Butte in Colorado.}
+\end{figure}
+\end{frame}
+
 
 % % SLIDE (TABLE)----------------------------
 % \begin{frame}
@@ -165,30 +182,30 @@ Burlington, VT 05401 USA \\
 % \end{frame}
 
 % SLIDE (EMBEDDED R FIGURE)----------------
-\begin{frame}[fragile]{Embedded R Figure; \texttt{fragile} frame}
+\begin{frame}[fragile]{It is also possible to include R code.}
 \begin{block}
+\ However, the margins get weird sometimes.
 
-<<fig.align='left',fig.dim=c(4,2.5), fig.cap="This is a plot of random uniform values.",echo=FALSE>>=
+<<fig.align='center',fig.dim=c(2.5,2), fig.cap="This is a plot of random uniform values.",echo=FALSE>>=
 # limited space for output
-plot(runif(10))
+plot(rnorm(10))
 @
-\label{Table caption}
 \end{block}
 \end{frame}
 
 
-% SLIDE (2 FIGURES)-----------------------------
-\begin{frame}
-\frametitle{Two Figures}
-% Uncomment the code on this slide to include your own image from the same directory as the template  file.
-\begin{figure}
-  \includegraphics[width=0.475\textwidth]{DSC_0982.jpg}%
-  \hfill
-  \includegraphics[width=0.475\textwidth]{DSC_0982.jpg}%
-% use this format for absolute sizing
-%\includegraphics[width=3cm, height=4cm]{filename.jpg}
-\end{figure}
+% SLIDE (EMBEDDED R FIGURE)----------------
+\begin{frame}[fragile]{We can play with dimensions.}
+\begin{block}
+
+<<fig.align='left',fig.dim=c(4,2.5), fig.cap="This is a plot of values - with a great caption.",echo=FALSE>>=
+# limited space for output
+plot(runif(10))
+@
+\end{block}
 \end{frame}
+
+
 
 
 
