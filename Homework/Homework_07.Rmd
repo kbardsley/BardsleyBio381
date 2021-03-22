@@ -1,0 +1,175 @@
+---
+title: "Homework 7"
+author: "Katie Bardsley"
+date: "3/17/2021"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+z_dataframe <- read.table("data_tree_phenology.csv",header=TRUE,sep=";",
+                          stringsAsFactors=FALSE)
+# https://datadryad.org/stash/dataset/doi:10.5061/dryad.8t026
+z <- data.frame(1:length(z_dataframe$country),z_dataframe$diameter)
+names(z) <- list("ID","myVar")
+str(z)
+summary(z)
+```
+
+This data set contains measurements for tree diameter at reproductive maturity for 31 timber species in centimeters.
+
+### Open Libraries
+
+```{r}
+library(ggplot2) # for graphics
+library(MASS) # for maximum likelihood estimation
+```
+
+### Read in data vector
+
+The following code can be used to generate fake data. It was not used in this example.
+
+```{r}
+# quick and dirty, a truncated normal distribution to work on the solution set
+
+# z <- rnorm(n=3000,mean=0.2)
+# z <- data.frame(1:3000,z)
+# names(z) <- list("ID","myVar")
+# z <- z[z$myVar>0,]
+# str(z)
+# summary(z$myVar)
+```
+
+### Plot histogram of data
+
+```{r}
+p1 <- ggplot(data=z, aes(x=myVar, y=..density..)) +  # rescale y axis from counts to density (want area under histogram to equal 1)
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+print(p1)
+```
+
+### Add empirical density curve
+
+This does not assume any particular probability distribution, but smooths out to the shape of the histogram.
+
+```{r}
+p1 <-  p1 +  geom_density(linetype="dotted",size=0.75)  # add in kernel density plot of data - empirical curve fitted to data
+print(p1)
+```
+
+### Get maximum likelihood parameters for `normal`
+
+Fit normal distribution and extract maximum likelihood estimators.
+
+```{r}
+normPars <- fitdistr(z$myVar,"normal")  # get maximum likelihood parameters
+print(normPars)
+str(normPars)
+normPars$estimate["mean"] # note structure of getting a named attribute
+```
+
+### Plot `normal` probability density
+
+You can use ggplot's `stat_function` to add smooth function to any ggplot.
+
+```{r}
+meanML <- normPars$estimate["mean"]
+sdML <- normPars$estimate["sd"]
+
+xval <- seq(0,max(z$myVar),len=length(z$myVar))
+
+ stat <- stat_function(aes(x = xval, y = ..y..), 
+                       fun = dnorm,   # dnorm generates probability density for normal distribution
+                       colour="red",  # make best-fitting normal distribution red
+                       n = length(z$myVar), 
+                       args = list(mean = meanML, sd = sdML))
+ p1 + stat
+```
+
+Beware that the best-fitting normal distribution (red curve) might have a biased mean because the data set probably doesn't have negative values, which will make the normal distribution not work well.
+
+### Plot `exponential` probability density
+
+```{r}
+expoPars <- fitdistr(z$myVar,"exponential")
+rateML <- expoPars$estimate["rate"]
+
+stat2 <- stat_function(aes(x = xval, y = ..y..), fun = dexp, # use exponential curve instead
+                       colour="blue", n = length(z$myVar), 
+                       args = list(rate=rateML))
+ p1 + stat + stat2
+```
+
+### Plot `uniform` probability density
+
+Don't need `fitdistr` here, just the min and max.
+
+```{r}
+stat3 <- stat_function(aes(x = xval, y = ..y..), fun = dunif, colour="darkgreen", n = length(z$myVar), args = list(min=min(z$myVar), max=max(z$myVar)))
+ p1 + stat + stat2 + stat3
+```
+
+### Plot `gamma` probability density
+
+```{r}
+gammaPars <- fitdistr(z$myVar,"gamma")
+shapeML <- gammaPars$estimate["shape"]
+rateML <- gammaPars$estimate["rate"]
+
+stat4 <- stat_function(aes(x = xval, y = ..y..), fun = dgamma, colour="brown", n = length(z$myVar), args = list(shape=shapeML, rate=rateML))
+ p1 + stat + stat2 + stat3 + stat4
+```
+
+### Plot `beta` probability density
+
+This one goes in its own plot because raw data was rescaled between 0 and 1.
+
+```{r}
+pSpecial <- ggplot(data=z, aes(x=myVar/(max(myVar + 0.1)), y=..density..)) +
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) + 
+  xlim(c(0,1)) +
+  geom_density(size=0.75,linetype="dotted")
+
+betaPars <- fitdistr(x=z$myVar/max(z$myVar + 0.1),start=list(shape1=1,shape2=2),"beta")
+shape1ML <- betaPars$estimate["shape1"]
+shape2ML <- betaPars$estimate["shape2"]
+
+statSpecial <- stat_function(aes(x = xval, y = ..y..), fun = dbeta, colour="orchid", n = length(z$myVar), args = list(shape1=shape1ML,shape2=shape2ML))
+pSpecial + statSpecial
+```
+
+### Taking a closer look at the best-fitting distribution
+
+The best-fitting distribution for this data set was the gamma distribution. The beta distribution also fit the data pretty well, but its assumptions may not be realistic.
+
+```{r}
+shapeML <- gammaPars$estimate["shape"]
+rateML <- gammaPars$estimate["rate"]
+
+z$new_data_gamma <- rgamma(n=(length(z$ID)), shape = shapeML, rate = rateML)
+```
+
+The gamma distribution probability density curve on the simulated data:
+
+```{r}
+p2 <- ggplot(data=z, aes(x=new_data_gamma, y=..density..)) +  
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+print(p2 + stat4)
+```
+
+The gamma distribution probability density curve on the original data:
+
+```{r}
+p1 <- ggplot(data=z, aes(x=myVar, y=..density..)) + 
+  geom_histogram(color="grey60",fill="cornsilk",size=0.2) 
+print(p1 + stat4)
+
+```
+
+The histogram profiles are very similar, but it appears as though there is more variance in the original data than the simulated data and it is more spread out. Nonetheless, the model does a good job of simulating fairly realistic data. The general shapes are very similar.
