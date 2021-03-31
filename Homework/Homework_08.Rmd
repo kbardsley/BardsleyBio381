@@ -24,7 +24,7 @@ Here I will be focusing on bud flush phenology in poplar, thinking about pattern
 ```{r}
 # cold source climate
 n_cold <- 500
-mean_cold <- 120
+mean_cold <- 125
 var_cold <- 300
   
 # warm source climate
@@ -71,7 +71,10 @@ summary(mod)
 ```
 
 ```{r}
-ggplot(data=data, mapping=aes(y=BudBreakDay, fill=Climate)) + geom_boxplot() + labs(title="Julian days before budbreak for poplar samples from different climates", y="Julian days before budbreak") + theme_bw()
+ggplot(data=data, mapping=aes(y=BudBreakDay, fill=Climate)) + geom_boxplot() + 
+  labs(title="Julian days before budbreak for poplar samples from different climates", 
+       y="Julian days before budbreak") + 
+  theme_minimal()
 ```
 
 #### 5.
@@ -89,21 +92,6 @@ summary(mod)
 #### 6.
 
 Make the mean bud break at day 130 instead of 140 so that there is less of a difference between the two groups.
-
-```{r}
-# cold source climate
-mean_cold <- 120
-
-# warm source climate
-mean_warm <- 130
-
-data <- RandomBudbreakData(n_cold, mean_cold, var_cold, n_warm, mean_warm, var_warm)
-
-mod <- aov(BudBreakDay ~ Climate, data=data)
-summary(mod)
-```
-
-We still see significance, so bring it up to 125 for the mean budbreak in the warm climate.
 
 ```{r}
 # cold source climate
@@ -141,7 +129,7 @@ Play with different sample sizes
 
 ```{r}
 # cold source climate
-mean_cold <- 120
+mean_cold <- 125
 var_cold <- 300
   
 # warm source climate
@@ -149,7 +137,7 @@ mean_warm <- 140
 var_warm <- 300
 
 # try playing with different sample sizes
-sample_sizes <- c(50, 100, 200, 400, 500, 1000)
+sample_sizes <- c(10, 20, 30, 50, 100, 200, 400, 500)
 for (n in sample_sizes){
   n_warm <- n/2
   n_cold <- n/2

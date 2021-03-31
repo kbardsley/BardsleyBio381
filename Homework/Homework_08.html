@@ -149,7 +149,7 @@ a.sourceLine {
 <h4>2.</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cold source climate</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n_cold <span class="ot">&lt;-</span> <span class="dv">500</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">125</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>var_cold <span class="ot">&lt;-</span> <span class="dv">300</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># warm source climate</span></span>
@@ -187,12 +187,15 @@ a.sourceLine {
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(BudBreakDay <span class="sc">~</span> Climate, <span class="at">data=</span>data)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Climate       1  89205   89205   284.2 &lt;2e-16 ***
-## Residuals   998 313236     314                   
+## Climate       1  56818   56818   189.9 &lt;2e-16 ***
+## Residuals   998 298549     299                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">y=</span>BudBreakDay, <span class="at">fill=</span>Climate)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Julian days before budbreak for poplar samples from different climates&quot;</span>, <span class="at">y=</span><span class="st">&quot;Julian days before budbreak&quot;</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code></pre></div>
-<p><img src="data:image/png;base64,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" /><!-- --></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data=</span>data, <span class="at">mapping=</span><span class="fu">aes</span>(<span class="at">y=</span>BudBreakDay, <span class="at">fill=</span>Climate)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Julian days before budbreak for poplar samples from different climates&quot;</span>, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">&quot;Julian days before budbreak&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="section-4" class="section level4">
 <h4>5.</h4>
@@ -202,8 +205,8 @@ a.sourceLine {
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(BudBreakDay <span class="sc">~</span> Climate, <span class="at">data=</span>data)</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
 <pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Climate       1 116513  116513   390.8 &lt;2e-16 ***
-## Residuals   998 297514     298                   
+## Climate       1  54530   54530   172.8 &lt;2e-16 ***
+## Residuals   998 314953     316                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
@@ -211,7 +214,7 @@ a.sourceLine {
 <h4>6.</h4>
 <p>Make the mean bud break at day 130 instead of 140 so that there is less of a difference between the two groups.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cold source climate</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">120</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">125</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># warm source climate</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>mean_warm <span class="ot">&lt;-</span> <span class="dv">130</span></span>
@@ -220,14 +223,14 @@ a.sourceLine {
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(BudBreakDay <span class="sc">~</span> Climate, <span class="at">data=</span>data)</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
-<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Climate       1  26485   26485   92.54 &lt;2e-16 ***
-## Residuals   998 285617     286                   
+<pre><code>##              Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## Climate       1   2338  2338.2   7.487 0.00632 **
+## Residuals   998 311673   312.3                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>We still see significance, so bring it up to 125 for the mean budbreak in the warm climate.</p>
+<p>We still see significance, so bring it up to 128 for the mean budbreak in the warm climate.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cold source climate</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">125</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">128</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># warm source climate</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>mean_warm <span class="ot">&lt;-</span> <span class="dv">130</span></span>
@@ -236,90 +239,72 @@ a.sourceLine {
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(BudBreakDay <span class="sc">~</span> Climate, <span class="at">data=</span>data)</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
-<pre><code>##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Climate       1   7369    7369   25.93 4.24e-07 ***
-## Residuals   998 283675     284                     
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>We still see significance, so bring it up to 128 for the mean budbreak in the warm climate.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cold source climate</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">128</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># warm source climate</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>mean_warm <span class="ot">&lt;-</span> <span class="dv">130</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">RandomBudbreakData</span>(n_cold, mean_cold, var_cold, n_warm, mean_warm, var_warm)</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(BudBreakDay <span class="sc">~</span> Climate, <span class="at">data=</span>data)</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mod)</span></code></pre></div>
-<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)  
-## Climate       1    976   975.6    3.19 0.0744 .
-## Residuals   998 305211   305.8                 
-## ---
-## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)
+## Climate       1    121   120.5   0.393  0.531
+## Residuals   998 306427   307.0</code></pre>
 <p>Here we stop seeing significance.</p>
 </div>
 <div id="section-6" class="section level4">
 <h4>7.</h4>
 <p>Play with different sample sizes</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cold source climate</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">120</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>var_cold <span class="ot">&lt;-</span> <span class="dv">300</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># warm source climate</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>mean_warm <span class="ot">&lt;-</span> <span class="dv">140</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>var_warm <span class="ot">&lt;-</span> <span class="dv">300</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="co"># try playing with different sample sizes</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">1000</span>)</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> sample_sizes){</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  n_warm <span class="ot">&lt;-</span> n<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  n_cold <span class="ot">&lt;-</span> n<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">RandomBudbreakData</span>(n_cold, mean_cold, var_cold, n_warm, mean_warm, var_warm)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(BudBreakDay <span class="sc">~</span> Climate, <span class="at">data=</span>data)</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,<span class="st">&quot;model for n=&quot;</span>,n<span class="sc">/</span><span class="dv">2</span>,<span class="st">&quot;for each treatment&quot;</span>,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot; &quot;</span>))</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">summary</span>(mod))</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cold source climate</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mean_cold <span class="ot">&lt;-</span> <span class="dv">125</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>var_cold <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># warm source climate</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>mean_warm <span class="ot">&lt;-</span> <span class="dv">140</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>var_warm <span class="ot">&lt;-</span> <span class="dv">300</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># try playing with different sample sizes</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>, <span class="dv">500</span>, <span class="dv">1000</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (n <span class="cf">in</span> sample_sizes){</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  n_warm <span class="ot">&lt;-</span> n<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>  n_cold <span class="ot">&lt;-</span> n<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> <span class="fu">RandomBudbreakData</span>(n_cold, mean_cold, var_cold, n_warm, mean_warm, var_warm)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>  mod <span class="ot">&lt;-</span> <span class="fu">aov</span>(BudBreakDay <span class="sc">~</span> Climate, <span class="at">data=</span>data)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>,<span class="st">&quot;model for n=&quot;</span>,n<span class="sc">/</span><span class="dv">2</span>,<span class="st">&quot;for each treatment&quot;</span>,<span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>, <span class="at">sep=</span><span class="st">&quot; &quot;</span>))</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">summary</span>(mod))</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <pre><code>## 
 ##  model for n= 25 for each treatment 
-##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Climate      1   5236    5236   28.43 2.58e-06 ***
-## Residuals   48   8840     184                     
+##             Df Sum Sq Mean Sq F value  Pr(&gt;F)   
+## Climate      1   2264  2263.7   11.59 0.00135 **
+## Residuals   48   9375   195.3                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ##  model for n= 50 for each treatment 
 ##             Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Climate      1  10323   10323   37.42 1.96e-08 ***
-## Residuals   98  27034     276                     
+## Climate      1   7180    7180   20.42 1.74e-05 ***
+## Residuals   98  34453     352                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ##  model for n= 100 for each treatment 
 ##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
-## Climate       1  26579   26579   72.59 4.02e-15 ***
-## Residuals   198  72499     366                     
+## Climate       1  10081   10081   40.56 1.31e-09 ***
+## Residuals   198  49215     249                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ##  model for n= 200 for each treatment 
-##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Climate       1  30510   30510   91.81 &lt;2e-16 ***
-## Residuals   398 132259     332                   
+##              Df Sum Sq Mean Sq F value   Pr(&gt;F)    
+## Climate       1  15291   15291   46.69 3.13e-11 ***
+## Residuals   398 130354     328                     
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ##  model for n= 250 for each treatment 
 ##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Climate       1  70367   70367   240.7 &lt;2e-16 ***
-## Residuals   498 145573     292                   
+## Climate       1  30549   30549   103.5 &lt;2e-16 ***
+## Residuals   498 147027     295                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ##  model for n= 500 for each treatment 
 ##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
-## Climate       1  84672   84672   297.6 &lt;2e-16 ***
-## Residuals   998 283977     285                   
+## Climate       1  56245   56245   187.9 &lt;2e-16 ***
+## Residuals   998 298808     299                   
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 </div>
