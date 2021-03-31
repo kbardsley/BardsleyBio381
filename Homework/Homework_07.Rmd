@@ -172,4 +172,4 @@ print(p1 + stat4)
 
 ```
 
-The histogram profiles are very similar, but it appears as though there is more variance in the original data than the simulated data and it is more spread out. Nonetheless, the model does a good job of simulating fairly realistic data. The general shapes are very similar.
+The histogram profiles are very similar, but it appears as though there is more variance in the original data than the simulated data and it is more spread out. There is less of a peak, or in other words, it is more difficult to identify a single mode. Nonetheless, the model does a good job of simulating fairly realistic data. The general shapes are very similar.
