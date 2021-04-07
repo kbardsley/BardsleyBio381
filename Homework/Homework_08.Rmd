@@ -24,15 +24,17 @@ Here I will be focusing on bud flush phenology in poplar, thinking about pattern
 ```{r}
 # cold source climate
 n_cold <- 500
-mean_cold <- 125
-var_cold <- 300
+mean_cold <- 105
+var_cold <- 75
   
 # warm source climate
 n_warm <- 500
-mean_warm <- 140
-var_warm <- 300
+mean_warm <- 115
+var_warm <- 75
 
 ```
+
+The variances were based on the fact that we normally start monitoring bud break in mid March and finish in early June. I estimated the number of Julian days during the period of time where bud flush is monitored and used that to predict the variance of the two groups. The means were also estimated based on the same time period, as I know that we commonly see the plants from colder source climates break bud slightly earlier. This information comes from my experience monitoring bud break as well as conversations I have had with other lab members.
 
 #### 3. Generating random data and setting it up in a data frame
 
@@ -91,14 +93,14 @@ summary(mod)
 
 #### 6. Changing the means for the two groups
 
-Make the mean bud break at day 130 instead of 140 so that there is less of a difference between the two groups.
+Make the mean bud break at day 110 instead of 105 for the cold source climate so that there is less of a difference between the two groups.
 
 ```{r}
 # cold source climate
-mean_cold <- 125
+mean_cold <- 110
 
 # warm source climate
-mean_warm <- 130
+mean_warm <- 115
 
 data <- RandomBudbreakData(n_cold, mean_cold, var_cold, n_warm, mean_warm, var_warm)
 
@@ -106,14 +108,14 @@ mod <- aov(BudBreakDay ~ Climate, data=data)
 summary(mod)
 ```
 
-We still see significance, so bring it up to 128 for the mean budbreak in the warm climate.
+We still see significance, so bring it up to 112 for the mean bud break in the cold climate and down 113 for the warm climate.
 
 ```{r}
 # cold source climate
-mean_cold <- 128
+mean_cold <- 112
 
 # warm source climate
-mean_warm <- 130
+mean_warm <- 113
 
 data <- RandomBudbreakData(n_cold, mean_cold, var_cold, n_warm, mean_warm, var_warm)
 
@@ -121,20 +123,21 @@ mod <- aov(BudBreakDay ~ Climate, data=data)
 summary(mod)
 ```
 
-Here we stop seeing significance.
+Here we stop seeing significance (in some but not all trials).
 
 #### 7. Changing the sample sizes
 
 Play with different sample sizes
 
 ```{r}
+
 # cold source climate
-mean_cold <- 125
-var_cold <- 300
+mean_cold <- 105
+var_cold <- 75
   
 # warm source climate
-mean_warm <- 140
-var_warm <- 300
+mean_warm <- 115
+var_warm <- 75
 
 # try playing with different sample sizes
 sample_sizes <- c(10, 20, 30, 40, 50, 100, 200, 400, 500, 1000)
@@ -162,9 +165,5 @@ print(means)
 
 ```
 
-
-
-
-# Write up your results in a markdown file, organized with headers and different code chunks to show your analysis. Be explicit in your explanation and justification for sample sizes, means, and variances.
 
 

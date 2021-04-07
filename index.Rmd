@@ -32,6 +32,6 @@ This is my webpage for Bio 381 - Computational Biology.
 
 ### Week 7: [Homework 7](Homework/Homework_07.html)
 
-### Week 9: [Homework 8 (incomplete)](Homework/Homework_08.html)
+### Week 9: [Homework 8](Homework/Homework_08.html)
 
 ### Week 10: [Homework 9](Homework/Homework_09.html)
