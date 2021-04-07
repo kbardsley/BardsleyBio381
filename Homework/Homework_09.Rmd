@@ -1,0 +1,190 @@
+---
+title: "Homework 9"
+author: "Katie Bardsley"
+date: "4/7/2021"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+#### Set up functions and global variables
+
+```{r}
+# write functions
+
+###################################
+# FUNCTION: make_dataframe
+# description: take parameters and turn them into data frame 
+#               of parameters to use for future tasks
+# inputs: n, mean, and variance for each treatment
+# outputs: dataframe
+# ---------------------------------
+make_dataframe <- function(n_cold, mean_cold, var_cold,
+                           n_warm, mean_warm, var_warm){
+  dataframe <- data.frame(n_cold, mean_cold, var_cold,
+                          n_warm, mean_warm, var_warm)
+  return(dataframe)
+} # end of make_dataframe
+
+###################################
+
+###################################
+# FUNCTION: RandomBudbreakData
+# description: generate random budbreak data and organize in data frame
+# inputs: data frame with n, mean, and variance for each treatement
+# outputs: dataframe
+# ---------------------------------
+RandomBudbreakData <- function(data){
+  data_cold <- rnorm(n=data$n_cold, mean=data$mean_cold, sd=sqrt(data$var_cold))
+  data_warm <- rnorm(n=data$n_warm, mean=data$mean_warm, sd=sqrt(data$var_warm))
+
+# combine into one big data frame
+  cold <- data.frame(1:data$n_cold, data_cold, 
+                     rep("cold", data$n_cold))
+  colnames(cold) <- c("ID", "BudBreakDay","Climate")
+  warm <- data.frame((data$n_cold+1):(data$n_cold+data$n_warm), 
+                     data_warm, rep("warm", data$n_cold))
+  colnames(warm) <- c("ID", "BudBreakDay","Climate")
+  budbreak_data <- rbind(cold, warm)
+  return(budbreak_data)
+} # end of RandomBudbreakData
+
+###################################
+
+###################################
+# FUNCTION: plot_data
+# description: make boxplots for budbreak data set
+# inputs: dataframe with n, mean, and variance for each treatment
+# outputs: boxplot
+# ---------------------------------
+plot_data <- function(budbreak_data){
+  ggplot2::ggplot(data=budbreak_data, mapping=
+                    aes(y=BudBreakDay, fill=Climate)) +
+    geom_boxplot() + 
+    labs(title="Julian days before budbreak for poplar samples from different climates", 
+       y="Julian days before budbreak") + 
+  theme_minimal()
+
+} # end of plot_data
+
+###################################
+
+###################################
+# FUNCTION: anova_budbreak
+# description: create anova model and return summary
+# inputs: budbreak data
+# outputs: summary of anova model
+# ---------------------------------
+anova_budbreak <- function(data){
+  mod <- aov(BudBreakDay ~ Climate, data=data)
+  return(summary(mod))
+} # end of anova_budbreak
+
+###################################
+
+```
+
+
+```{r}
+# set global variables
+
+# cold source climate
+n_cold <- 500
+mean_cold <- 125
+var_cold <- 300
+  
+# warm source climate
+n_warm <- 500
+mean_warm <- 140
+var_warm <- 300
+```
+
+
+#### 1. Creating a random bud break data set and run ANOVA analysis
+
+Here I will be focusing on bud flush phenology in poplar, thinking about patterns similar to those being studied in the Keller Lab currently. In a common garden, you might expect samples taken from colder climates to break bud earlier than those from warmer climates as they have a shorter growing season and need to take advantage of all the warm days they can get. 
+
+
+```{r}
+budbreak <- RandomBudbreakData(make_dataframe(n_cold, mean_cold, var_cold, 
+                                              n_warm, mean_warm, var_warm)) 
+              # make random data set
+anova_budbreak(budbreak) # make anova model and produce summary
+plot_data(budbreak) # plot DENSITY plots of data
+```
+
+#### 2. Creating a new function
+
+```{r}
+
+###################################
+# FUNCTION: plot_data_density
+# description: make density plots for budbreak data 
+# inputs: dataframe with n, mean, and variance for each treatment
+# outputs: density plots
+# ---------------------------------
+plot_data_density <- function(budbreak_data){
+  ggplot2::ggplot(data=budbreak_data, mapping=
+                    aes(x=BudBreakDay, fill=Climate)) +
+    geom_density(alpha=0.8) + 
+    labs(title="Julian days before budbreak for poplar samples from different climates", 
+       x="Julian days before budbreak") + 
+  theme_minimal()
+
+} # end of plot_data_density
+
+###################################
+
+```
+
+```{r}
+
+budbreak <- RandomBudbreakData(make_dataframe(n_cold, mean_cold, var_cold, 
+                                              n_warm, mean_warm, var_warm)) 
+              # make random data set
+anova_budbreak(budbreak) # make anova model and produce summary
+plot_data_density(budbreak) # plot boxplots of data
+
+```
+
+
+#### 3. Changing the sample sizes within a for loop and recording p-values
+
+Play with different sample sizes
+
+```{r}
+
+# try playing with different sample sizes
+sample_sizes <- c(10, 20, 30, 40, 50, 100, 200, 400, 500, 1000)
+mean <- rep(999, length(sample_sizes))
+count <- 1
+
+for (n in sample_sizes){
+  n_warm <- n/2 ; n_cold <- n/2
+  pval <- rep(999, 100)
+  for (i in 1:100){
+    budbreak <- RandomBudbreakData(make_dataframe(n_cold, mean_cold, var_cold, 
+                                                  n_warm, mean_warm, var_warm)) 
+    # make random data set
+    summary <- anova_budbreak(budbreak) # make anova model and produce summary
+    pval[i] <- summary[[1]]$`Pr(>F)`[1]  # save p-value
+  }
+  mean[count] <- signif(mean(pval), digits=3)
+  count <- count + 1
+  
+}
+means <- data.frame(sample_sizes/2, mean)
+colnames(means) <- c("Number of samples in each treatment", 
+                     "Mean p-value across 100 iterations")
+print(means)
+
+```
+
+
+
