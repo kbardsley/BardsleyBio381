@@ -27,7 +27,8 @@ mean_ct_fun <- function(d=NULL){
   d$CT <- as.numeric(d$CT)
   d$Sample_Name <- as.factor(d$Sample_Name)
   d$Target_Name <- as.factor(d$Target_Name)
-  mean_cts <- d %>% group_by(Sample_Name, Target_Name) %>% summarize(mean_ct = mean(CT), .groups="keep")
+  mean_cts <- d %>% group_by(Sample_Name, Target_Name) %>% 
+    summarize(mean_ct = mean(CT), .groups="keep")
   
 # function body
 
@@ -67,7 +68,7 @@ for (i in seq_along(file_names)){  # seq_along(file_names)
   stats_out <- rbind(stats_out, .)
 }
 
-# set up output file and incorporate time stamp and minimal metadata ------------------------------
+# set up output file and incorporate time stamp and minimal metadata --------------
 
 write.table(cat("# Summary stats for ",
                 "batch processing of qPCR data",

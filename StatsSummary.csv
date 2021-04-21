@@ -1,5 +1,5 @@
 # Summary stats for batch processing of qPCR data
-# timestamp: 2021-04-21 15:05:05Sample_Name,Target_Name,mean_ct,file_name
+# timestamp: 2021-04-21 15:11:26Sample_Name,Target_Name,mean_ct,file_name
 cpALB05,aDNA15-16,7.56038633966667,Bardsley_10_9_20_quant_2_data.csv
 cpALB05,YLS8,20.9530398033333,Bardsley_10_9_20_quant_2_data.csv
 cpBER02,aDNA15-16,5.876414617,Bardsley_10_9_20_quant_2_data.csv
