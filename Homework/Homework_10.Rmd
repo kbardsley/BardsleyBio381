@@ -1,0 +1,199 @@
+---
+title: "Homework 10"
+author: "Katie Bardsley"
+date: "4/14/2021"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+### 1.
+
+```{r}
+
+###################################
+# FUNCTION: zero_counter
+# description: calculate the number of zeros in a numeric vector
+# inputs: numeric vector
+# outputs: count of number of zeroes
+# ---------------------------------
+zero_counter <- function(numeric_vector=
+                           sample(c(0,1), 20, replace=TRUE)){
+  counter <- 0
+  for (i in seq_along(numeric_vector)) {
+    if (numeric_vector[i] == 0){
+      counter <- counter + 1
+    }
+  }
+# function body
+
+  return(counter)
+} # end of zero_counter
+
+###################################
+
+zero_counter()
+
+```
+
+### 2.
+
+```{r}
+numeric_vector <- sample(c(0,1), 20, replace=TRUE)
+length(numeric_vector[numeric_vector == 0])
+```
+
+
+### 3.
+
+```{r}
+###################################
+# FUNCTION: make_matrix
+# description: make matrix of desired size where each element is product of row number and column number
+# inputs: number of rows, number of columns
+# outputs: matrix
+# ---------------------------------
+make_matrix <- function(n_row=sample(3:10, 1),
+                        n_col=sample(3:10, 1)){
+  elements <- n_row*n_col
+  print(elements)
+  matrix <- matrix(rep(0, elements), nrow=n_row)
+  for (i in 1:n_row){
+    for (j in 1:n_col){
+      matrix[i,j] <- i*j
+    }
+  }
+
+# function body
+
+  return(matrix)
+} # end of make_matrix
+
+###################################
+
+make_matrix()
+
+```
+
+### 4.
+
+```{r}
+Gst_data <- read.table("Gst_distance_nonzero_redcluster.csv", sep=",")
+Gst_data <- Gst_data %>% select(c(ID,log_dist,Gst_standard))
+
+###################################
+# FUNCTION: read_data
+# description: read in (or generate) data set for analysis
+# inputs: file name (or nothing, as in this demo)
+# outputs: 3 column data frame of observed data (ID, x, y)
+# ---------------------------------
+read_data <- function(z=NULL){
+  if(is.null(z)){
+    gst <- runif(20)
+    dist <- sample(10:20,20, replace=TRUE)
+    df <- data.frame(ID=seq_along(gst), gst, dist)
+  }else {
+    df <- read.table(file=z, header=TRUE) 
+  df <- df %>% select(c(ID,log_dist,Gst_standard))}
+  return(df)
+} # end of read_data
+
+###################################
+
+###################################
+# FUNCTION: get_metric
+# description: calculate metric for randomization test
+# inputs: 2-column data frame for regression
+# outputs: regression slope
+# ---------------------------------
+get_metric <- function(z=NULL){
+  if(is.null(z)){
+    gst <- runif(20)
+    dist <- sample(10:20,20, replace=TRUE)
+    df <- data.frame(ID=seq_along(gst), gst, dist)
+  }
+  
+  . <- lm(z[,3]~z[,2])
+  . <- summary(.)
+  . <- .$coefficients[2,1]
+  slope <- .
+  return(slope)
+
+} # end of get_metric
+
+###################################
+
+###################################
+# FUNCTION: shuffle_data
+# description: randomize data for regression analysis
+# inputs: 3 column data frame (ID, xvar, yvar)    
+# outputs: 3 column data frame (ID, xvar, yvar)
+# ---------------------------------
+shuffle_data <- function(z=NULL){
+  if(is.null(z)){
+    x_obs <- 1:20
+    y_obs <- x_obs + 10*rnorm(20)
+    z <- data.frame(ID=seq_along(x_obs), x_obs, y_obs)
+  }
+  z[,3] <- sample(z[,3])
+
+  return(z)
+} # end of shuffle_data
+
+###################################
+
+# shuffle_data()
+
+
+###################################
+# FUNCTION: get_pval
+# description: calculate p value from simulation
+# inputs: list of observed metric and vector of simulated metrics
+# outputs: lower and upper tail probability value
+# ---------------------------------
+get_pval <- function(z=NULL){
+  if(is.null(z)){
+    z <- list(rnorm(1), rnorm(1000))
+  }
+
+  p_lower <- mean(z[[2]]<=z[[1]])
+  p_upper <- mean(z[[2]]>z[[1]])
+
+  return(c(pL=p_lower, pU=p_upper))
+} # end of get_pval
+
+###################################
+
+# get_pval()
+
+
+###################################
+# FUNCTION: plot_ran_test
+# description: create a ggplot histogram of simulated values
+# inputs: list of observed metric and vector simulated metrics
+# outputs: saved ggplot graph
+# ---------------------------------
+plot_ran_test <- function(z=NULL){
+  if(is.null(z)){
+    z <- list(rnorm(1),rnorm(1000))
+  }
+  
+  df <- data.frame(ID=seq_along(z[[2]]), sim_x=z[[2]])
+
+  p1 <- ggplot2::ggplot(data=df, mapping=aes(x=sim_x))
+  p2 <- p1 + geom_histogram(mapping=aes(fill=I("goldenrod"), color=I("black"))) + geom_vline(aes(xintercept=z[[1]], col="blue"))
+  plot(p2)
+} # end of plot_ran_test
+
+###################################
+
+
+read_data("Gst_distance_nonzero_redcluster.csv")
+```
+

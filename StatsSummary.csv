@@ -1,0 +1,40 @@
+# Summary stats for batch processing of qPCR data
+# timestamp: 2021-04-21 15:05:05Sample_Name,Target_Name,mean_ct,file_name
+cpALB05,aDNA15-16,7.56038633966667,Bardsley_10_9_20_quant_2_data.csv
+cpALB05,YLS8,20.9530398033333,Bardsley_10_9_20_quant_2_data.csv
+cpBER02,aDNA15-16,5.876414617,Bardsley_10_9_20_quant_2_data.csv
+cpBER02,YLS8,18.8126608533333,Bardsley_10_9_20_quant_2_data.csv
+cpMMF02,aDNA15-16,6.81971645366667,Bardsley_10_9_20_quant_2_data.csv
+cpMMF02,YLS8,19.8368447633333,Bardsley_10_9_20_quant_2_data.csv
+cpMMF32,aDNA15-16,5.377431393,Bardsley_10_9_20_quant_2_data.csv
+cpMMF32,YLS8,19.2184537266667,Bardsley_10_9_20_quant_2_data.csv
+cpWHI05,aDNA15-16,6.305934429,Bardsley_10_9_20_quant_2_data.csv
+cpWHI05,YLS8,19.9178218833333,Bardsley_10_9_20_quant_2_data.csv
+gALB05,aDNA15-16,11.5948146176667,Bardsley_10_9_20_quant_2_data.csv
+gALB05,YLS8,19.0020033533333,Bardsley_10_9_20_quant_2_data.csv
+gBER02,aDNA15-16,8.87025388066667,Bardsley_10_9_20_quant_2_data.csv
+gBER02,YLS8,19.080991745,Bardsley_10_9_20_quant_2_data.csv
+gMMF02,aDNA15-16,9.18916130133333,Bardsley_10_9_20_quant_2_data.csv
+gMMF02,YLS8,19.3598143266667,Bardsley_10_9_20_quant_2_data.csv
+gMMF32,aDNA15-16,8.40945243833333,Bardsley_10_9_20_quant_2_data.csv
+gMMF32,YLS8,20.0394725766667,Bardsley_10_9_20_quant_2_data.csv
+gWHI05,aDNA15-16,8.82092698433333,Bardsley_10_9_20_quant_2_data.csv
+gWHI05,YLS8,19.63760503,Bardsley_10_9_20_quant_2_data.csv
+cpCRR02,15-16,12.61193498,Bardsley_11_2_20_quant_3_data.csv
+cpCRR02,YLS8,20.5452791866667,Bardsley_11_2_20_quant_3_data.csv
+cpKOS03,15-16,11.0373837133333,Bardsley_11_2_20_quant_3_data.csv
+cpKOS03,YLS8,18.6099675466667,Bardsley_11_2_20_quant_3_data.csv
+gCRR02,15-16,11.9481623966667,Bardsley_11_2_20_quant_3_data.csv
+gCRR02,YLS8,17.63216591,Bardsley_11_2_20_quant_3_data.csv
+gKOS03,15-16,12.47988097,Bardsley_11_2_20_quant_3_data.csv
+gKOS03,YLS8,18.2465031933333,Bardsley_11_2_20_quant_3_data.csv
+MMF33 cpDNA,15-16,16.2207533533333,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF33 cpDNA,YLS8,27.2297865566667,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF33 gDNA,15-16,11.3307495133333,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF33 gDNA,YLS8,21.33507538,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF35 cpDNA,15-16,11.8158156066667,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF35 cpDNA,YLS8,22.5519224833333,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF37 cpDNA,15-16,12.10513433,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF37 cpDNA,YLS8,24.1899305966667,Bardsley_chloroplast_enrichment_8_14_20_data_smaller.csv
+MMF35,15-16,15.849873545,Bardsley_quantitytest_8_13_20_data.csv
+MMF35,YLS8,25.7245244975,Bardsley_quantitytest_8_13_20_data.csv

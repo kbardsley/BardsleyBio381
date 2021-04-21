@@ -1,0 +1,84 @@
+---
+title: "Homework 11"
+author: "Katie Bardsley"
+date: "4/21/2021"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r}
+###################################
+# FUNCTION: mean_ct
+# description: calculate mean CT for each sample/primer pair combination
+# inputs: data frame with sample, primer, and Ct information for each replicate
+# outputs: mean ct
+# ---------------------------------
+mean_ct_fun <- function(d=NULL){
+  if (is.null(d)) {
+    stop("Function needs data.")
+  }
+  d$CT <- as.numeric(d$CT)
+  d$Sample_Name <- as.factor(d$Sample_Name)
+  d$Target_Name <- as.factor(d$Target_Name)
+  mean_cts <- d %>% group_by(Sample_Name, Target_Name) %>% summarize(mean_ct = mean(CT), .groups="keep")
+  
+# function body
+
+  return(mean_cts)
+} # end of reg_stats
+
+################################### 
+
+```
+
+
+```{r}
+file_folder <- "qPCR_data/"
+file_out <- "StatsSummary.csv"
+
+file_names <- list.files(path=file_folder)  # goes into folder and grabs file names
+head(file_names)
+
+# Create a data frame to hold summary file statistics ------------------------------
+
+file_name <- rep(NA, length(file_names))
+Sample_Name <- rep(NA, length(file_names))
+Target_Name <- rep(NA, length(file_names))
+mean_ct <- rep(NA, length(file_names))
+
+stats_out <- data.frame(Sample_Name, Target_Name, mean_ct, file_name)
+stats_out <- stats_out %>% filter(!is.na(stats_out$Sample_Name))
+
+# Batch processing -by looping through individual files-----------------------------
+
+for (i in seq_along(file_names)){  # seq_along(file_names)
+  data <- read.table(file=paste(file_folder,file_names[i],sep=""),
+                     sep=",", header=TRUE,na.strings=c("","Undetermined"))
+  d_clean <- data[complete.cases(data),] %>% filter(!is.na(CT)) # subset for clean cases
+  . <- mean_ct_fun(d_clean)  # pulls out regression stats from clean file
+  .$file_name <- file_names[i]
+  stats_out <- rbind(stats_out, .)
+}
+
+# set up output file and incorporate time stamp and minimal metadata ------------------------------
+
+write.table(cat("# Summary stats for ",
+                "batch processing of qPCR data",
+                "\n", "# timestamp: ", 
+                as.character(Sys.time()),
+                file=file_out, row.names="",
+                col.names="", sep=""))
+
+# now add data frame ------------------------------
+write.table(x=stats_out, file=file_out, row.names=FALSE,
+            col.names=TRUE, sep=",", append=TRUE, quote=FALSE)
+```
+
+
