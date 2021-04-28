@@ -1,0 +1,84 @@
+---
+title: "Homework 12"
+author: "Katie Bardsley"
+date: "4/28/2021"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(patchwork)
+```
+
+```{r}
+library(ISLR) # use college data set within ISLR to play with ggplot graphs
+glimpse(College)
+```
+
+### Basic scatter plot with regression line
+
+```{r}
+# Graph of expenditure by enrollment
+ggplot(data=College, mapping=aes(x=Enroll, y=Expend, color=Private)) + 
+  geom_point() + geom_smooth(method="lm") + theme_bw() + 
+  labs(title="Graph of college expenditures by school enrollment")
+```
+
+### Same data, just using facets
+
+```{r}
+# Looking at the same data, just using facets
+ggplot(data=College, mapping=aes(x=Enroll, y=Expend, color=Private)) + 
+  geom_point() + geom_smooth(method="lm") + theme_bw() + 
+  labs(title="Graph of college expenditures by school enrollment") + 
+  facet_wrap(~Private)
+```
+```{r}
+# Modify the data to make the facet labels more informative
+College$Private <- factor(College$Private, levels=c("Yes","No"), 
+                          labels=c("Private", "Public"))
+glimpse(College) # check to see if it worked
+
+# Try facet graph again
+ggplot(data=College, mapping=aes(x=Enroll, y=Expend, color=Private)) + 
+  geom_point() + geom_smooth(method="lm") + theme_bw() + 
+  labs(title="Graph of college expenditures by school enrollment") + 
+  facet_wrap(~Private) + theme(legend.position="none") 
+  # get rid of legend because unnecessary
+
+# Try playing with aesthetics of facets and different colors
+a <- ggplot(data=College, mapping=aes(x=Enroll, y=Expend, color=Private)) + 
+  geom_point() + geom_smooth(method="lm") + theme_bw() + 
+  labs(title="Graph of college expenditures by school enrollment") + 
+  facet_wrap(~Private) + theme(legend.position="none") + 
+  scale_color_manual(values=c("olivedrab","royalblue")) +
+ theme(strip.background = element_rect(
+     color="black", fill="slategray1", size=1, linetype="solid"))
+a
+ggsave(a, filename="expenditure.png", device="png")
+```
+
+```{r}
+glimpse(College)
+```
+
+### Another scatter plot, mapping to all sorts of aesthetics
+
+```{r}
+b <- ggplot(data=College, mapping=aes(x=Top10perc, y=Grad.Rate, 
+                                 color=Outstate, shape=Private)) + 
+  geom_point(size=2, alpha=0.9) + scale_color_viridis_c() + 
+  theme_classic(base_size=15) + 
+  labs(title="Graduation Rates for Universities", y="Graduation Rate", 
+       x = "Percent of students in the top 10% of their high school class", 
+       color="Out-of-state tuition", shape="School type")
+b
+ggsave(b, filename="gradrate.png", device="png") 
+
+```
+
+
