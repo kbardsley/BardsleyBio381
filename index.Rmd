@@ -40,4 +40,4 @@ This is my webpage for Bio 381 - Computational Biology.
 
 ### Week 12: [Homework 11](Homework_11.html)
 
-### Week 13: [Homework 12](Homework/Homework_012.html)
+### Week 13: [Homework 12](Homework/Homework_12.html)
