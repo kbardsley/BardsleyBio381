@@ -84,8 +84,6 @@ make_matrix()
 ### 4.
 
 ```{r}
-Gst_data <- read.table("Gst_distance_nonzero_redcluster.csv", sep=",")
-Gst_data <- Gst_data %>% select(c(ID,log_dist,Gst_standard))
 
 ###################################
 # FUNCTION: read_data
@@ -99,7 +97,7 @@ read_data <- function(z=NULL){
     dist <- sample(10:20,20, replace=TRUE)
     df <- data.frame(ID=seq_along(gst), gst, dist)
   }else {
-    df <- read.table(file=z, header=TRUE) 
+    df <- read.table(file=z, header=TRUE, sep=",") 
   df <- df %>% select(c(ID,log_dist,Gst_standard))}
   return(df)
 } # end of read_data
@@ -148,9 +146,6 @@ shuffle_data <- function(z=NULL){
 
 ###################################
 
-# shuffle_data()
-
-
 ###################################
 # FUNCTION: get_pval
 # description: calculate p value from simulation
@@ -169,9 +164,6 @@ get_pval <- function(z=NULL){
 } # end of get_pval
 
 ###################################
-
-# get_pval()
-
 
 ###################################
 # FUNCTION: plot_ran_test
@@ -194,6 +186,29 @@ plot_ran_test <- function(z=NULL){
 ###################################
 
 
-read_data("Gst_distance_nonzero_redcluster.csv")
+n_sim <- 10000 # number of simulated data sets
+x_sim <- rep(NA, n_sim) # set up empty vector for simulated slopes 
+Gst_data <- read_data("Gst_distance_nonzero_redcluster.csv")  # get data
+
+x_obs <- get_metric(Gst_data) # get slope of observed data
+
+set.seed(44)
+for (i in seq_len(n_sim)){
+  x_sim[i] <- get_metric(shuffle_data(Gst_data))
+}
+
+slopes <- list(x_obs, x_sim)
+
+get_pval(slopes) # tail probability = p-value
+plot_ran_test(slopes)
+
 ```
 
+### 5.
+
+```{r}
+model <- lm(Gst_data[,3]~Gst_data[,2])
+summary(model)
+```
+
+The p-value estimated from the randomization tests is slightly lower than that from the linear model - however, both are highly insignificant. This is what we would expect based on the data. The p-values were basically unchanged when the number of simulations was increased. Both tests show us there is no significant linear relationship between genetic differentiation and geographic distance in this data set. The difference in the p-values from the two different methods may be due to deviations from the assumptions of the linear regression methods, particularly independence and normality.
